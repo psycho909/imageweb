@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#louti{
+		width:24px;
+		position: fixed;
+		top:250px;
+		right:10px;
+	}
+	#louti ul li{
+		list-style-type:none;
+		width:12px;
+		height: 12px;
+		background: #3f4148;
+		cursor:pointer;
+		border-radius:12px;
+		margin:8px;
+		box-shadow: inset 0px 0 1px rgba(0, 0, 0, 0.8);
+	}
+	#louti img.top{
+		display:block;
+	}
+	#louti ul li.bg1{
+		background: #000;
+	}
+	#louti ul li.bg2{
+		background: #2f2f2f;
+	}
+	#louti ul li.bg3{
+		background: #ffa14e;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+	}
+	.box{
+		width:100%;
+		height: 400px;
+		background: #ccf;
+		font-size:35px;
+		color:red;
+		text-align:center;
+	}
+</style>
+</head>
+<body>
+	<div id="louti">
+		<ul>
+			<li class="bg3"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="box" style="background:#ccf">測試區</div>
+	<div class="box" style="background:#3ff">測試區</div>
+	<div class="box" style="background:#3f3">測試區</div>
+	<div class="box" style="background:#090">測試區</div>
+	<div class="box" style="background:#fc0">測試區</div>
+	<div class="box" style="background:#390">測試區</div>
+	<div class="box" style="background:#933">測試區</div>
+	<div class="box" style="background:#ff0">測試區</div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+	/*$("#louti ul li:even").addClass("bg1");
+	$("#louti ul li:odd").addClass("bg2");
+	$("#louti ul li").mouseover(function(){
+		$(this).addClass("bg4").siblings("li").removeClass("bg4");
+	});*/
+
+	$("#louti ul li").click(function(){
+		var _index=$(this).index();
+		console.log(_index);
+		$("body,html").animate({scrollTop:_index*400},800);
+	});
+	$(function(){
+		$(window).scroll(function(){
+			var scrollval=$(this).scrollTop();
+			console.log(scrollval);
+			if(scrollval>=0 && scrollval<200){
+				$("#louti ul li").eq(0).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=200 && scrollval<700){
+				$("#louti ul li").eq(1).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=700 && scrollval<1100){
+				$("#louti ul li").eq(2).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=1100 && scrollval<1500){
+				$("#louti ul li").eq(3).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=1500 && scrollval<1900){
+				$("#louti ul li").eq(4).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=1900 && scrollval<2300){
+				$("#louti ul li").eq(5).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=2300 && scrollval<2500){
+				$("#louti ul li").eq(6).addClass("bg3").siblings("li").removeClass("bg3");
+			}else if(scrollval>=2500 && scrollval<3200){
+				$("#louti ul li").eq(7).addClass("bg3").siblings("li").removeClass("bg3");
+			}
+		});
+	});
+</script>
+</html>
