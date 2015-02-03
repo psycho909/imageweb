@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>形象網站</title>
 <style>
 	*{
 		margin: 0px;
@@ -76,10 +76,9 @@
 	$("#louti ul li").mouseover(function(){
 		$(this).addClass("bg4").siblings("li").removeClass("bg4");
 	});*/
-
 	$("#louti ul li").click(function(){
 		var _index=$(this).index();
-		console.log(_index);
+		//console.log(_index);
 		$("body,html").animate({scrollTop:_index*400},800);
 	});
 	$(function(){
